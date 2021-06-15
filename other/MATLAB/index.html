@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>MATLAB (unstable) - Project Starling</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MATLAB (unstable)";
+    var mkdocs_page_input_path = "other/MATLAB.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Project Starling</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/getting-started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/background/">Background</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/single-drone-local-machine/">Single Drone on Local Machine</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/kube-single-drone-local-machine/">Single Drone on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/single-drone-drones/">Single Drone on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/multiple-drone-local-machine/">Multiple Drones on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/multiple-drone-drones/">Multiple Drones on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/windows-support/">Windows Support</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Additional Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-dashboard/">Dashboard Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/docker/">Understanding Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes/">Understanding Kubernetes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/flight_arena/">BRL Flight Arena</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/px4/">PX4 Details</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/example-controller/">Example Python Controller</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-deployment/">Example Kubernetes Deployments</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-mavros/">Mavros Container</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-ui/">Starling UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/build_system/">Build System</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../ideas/">Ideas</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MATLAB (unstable)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#on-ubuntu-18">On Ubuntu 18</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#macos">macOS</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Project Starling</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Miscellaneous &raquo;</li>
+        
+      
+    
+    <li>MATLAB (unstable)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/UoBFlightLab/ProjectStarling/edit/master/docs/other/MATLAB.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="custom-message-support">Custom Message Support<a class="headerlink" href="#custom-message-support" title="Permanent link">&para;</a></h1>
+<p><a href="https://uk.mathworks.com/matlabcentral/answers/741977-has-matlab-ros2-support-for-actions-and-services-not-been-implemented-yet/?s_tid=ans_lp_feed_leaf"><strong>MATLAB HAS NO CUSTOM ROS2 SERVICE SUPPORT</strong></a></p>
+<p>Starling uses ROS2 and MAVROS to communicate with the vehicles. MAVROS includes
+some custom message types that need to be built for MATLAB before it can use
+them. The main MATLAB documentation is <a href="https://uk.mathworks.com/help/ros/ref/ros2genmsg.html">here</a>.
+The specific steps for Starling are outlined below.</p>
+<ol>
+<li>
+<p>Check that your MATLAB installation is setup to be able to work with ROS2.
+   The MATLAB documentation is <a href="https://uk.mathworks.com/help/ros/gs/ros-system-requirements.html">here</a>.
+   Firstly you need MATLAB's ROS Toolbox. For ROS2, you need to ensure that
+   you are using Python 3. Use <code>pyenv</code> in the MATLAB prompt to check the
+   current setup. If it is not setup to use Python 3, restart MATLAB and use
+   <code>pyenv('Version','3.7')</code> to set the version on Windows. On Linux, use
+   <code>pyenv('Version','/path/to/python')</code> Additionally, you also need a C+
+   compiler and CMake.</p>
+</li>
+<li>
+<p>Download the MAVROS repo with ROS2 message support from Github. Note that
+   the official repo does not yet include ROS2 support. A modified version is
+   available here: https://github.com/rob-clarke/mavros/tree/mavros2
+   You can download the code as a <a href="https://github.com/rob-clarke/mavros/archive/mavros2.zip">ZIP</a>
+   from that site or use <code>git</code> to clone it:
+   <code>sh
+   git clone -b mavros2 https://github.com/rob-clarke/mavros</code></p>
+</li>
+<li>
+<p>Download the geographic_info repo. Again make sure you have the ROS2 branch:
+    <code>sh
+    git clone -b ros2 https://github.com/ros-geographic-info/geographic_info</code></p>
+</li>
+<li>
+<p>Copy <code>mavros_msgs</code> from <code>mavros</code> and <code>geographic_msgs</code> from
+   <code>geographic_info</code> to a new folder called <code>matlab_msgs</code>:
+   <code>bash
+   mkdir matlab_msgs
+   cp -r mavros/mavros_msgs matlab_msgs/mavros_msgs
+   cp -r geographic_info/geographic_msgs matlab_msgs/geographic_msgs</code></p>
+</li>
+<li>
+<p>Clone the <code>unique_identifier_msgs</code> repo into your <code>matlab_msgs</code> folder:
+   <code>git clone https://github.com/ros2/unique_identifier_msgs matlab_msgs/unique_identifier_msgs</code></p>
+</li>
+<li>
+<p>Use MATLAB's <code>ros2genmsg</code> on the <code>matlab_msgs</code> folder
+   source:
+   <code>matlab
+   ros2genmsg('matlab_msgs')</code></p>
+</li>
+</ol>
+<h2 id="on-ubuntu-18">On Ubuntu 18<a class="headerlink" href="#on-ubuntu-18" title="Permanent link">&para;</a></h2>
+<p><code>ros2genmsg</code> failed for me and I had to modify the venv it generates:</p>
+<pre><code class="language-bash">echo &quot;export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libexpat.so&quot; &gt;&gt; ~/.matlab/R2019b/ros2/python_venv/bin/activate
+</code></pre>
+<p>It then worked the second time round...</p>
+<p>See <a href="https://uk.mathworks.com/matlabcentral/answers/581567-how-do-i-configure-ros2-for-matlab-r2020a-on-ubuntu-18-04">here</a>
+for an answer from MATLAB support.</p>
+<pre><code class="language-bash">sudo apt install python3.7 libpython3.7 python3.7-venv
+sudo ln -s /usr/lib/x86_64-linux-gnu/libpython3.7m.so.1 /usr/lib/libpython3.7m.so.1
+sudo ln -s /usr/lib/x86_64-linux-gnu/libpython3.7m.so.1.0 /usr/lib/libpython3.7m.so.1.0
+</code></pre>
+<h2 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<p><code>ros2genmsg</code> apparently needs a very specfic version of Python (namely 3.7). The last available
+Windows installer for this is Python 3.7.9. See the <a href="https://www.python.org/downloads/windows/">Python downloads page</a></p>
+<p>The ROS Toolbox needs a very specific C++ compiler too: Microsoft Visual C++ 2017.
+MATLAB documentation on compiler support is <a href="https://uk.mathworks.com/support/requirements/supported-compilers.html">here</a>.</p>
+<p>Visual Studio 2017 can be downloaded from <a href="https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes">here</a>.
+You should only need the community edition.</p>
+<p>Once Visual Studio is installed, run <code>mex -setup cpp</code> in the MATLAB prompt. You should see something like:
+<code>MEX configured to use 'Microsoft Visual C++ 2017' for C++ language compilation.</code></p>
+<p>You also need to have CMake, installed. A binary installer can be found here:
+<a href="https://cmake.org/download/">cmake.org/download/</a></p>
+<p><em>I'm considering giving up on Windows at this point</em></p>
+<p>File paths might be too long! There may be a registry fix, but we'll just move things to a shorter path!</p>
+<p>Also MATLAB installs outdated versions of things which break some of the mavros_msgs files. Need to edit
+<code>mavros_msgs/msg/BatteryStatus.msg</code> to add any random characters next to the unit comments for <code>voltage</code>
+and <code>current</code>.</p>
+<h2 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h2>
+<p>You will need xcode tools installed. Press Cmd-space and search for "Terminal". Then type the command
+below and press enter.</p>
+<pre><code class="language-bash">xcode-select --install
+</code></pre>
+<h1 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h1>
+<p>~Once built, the Matlab script calls <code>ros.internal.custommsgs.updatePreferences(msgFullName,{},{},{},'ros2',genDir)</code>,
+where <code>genDir = fullfile(folderPath, 'matlab_msg_gen', computer('arch'));</code> (e.g. <code>matlab_msgs/matlab_msg_gen/win64</code>),
+and <code>msgFullName</code> is a cell array containing <code>${PKG_NAME}/${MSG_NAME}</code> strings. How to do this without the build
+process? I don't know...~</p>
+<p>Maybe solved, see MATLAB answers:
+<a href="https://uk.mathworks.com/matlabcentral/answers/616223">uk.mathworks.com/matlabcentral/answers/616223</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../ideas/" class="btn btn-neutral" title="Ideas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2021 University of Bristol Flight Laboratory</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/UoBFlightLab/ProjectStarling/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../ideas/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

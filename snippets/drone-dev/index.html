@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Drone dev - Project Starling</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Drone dev";
+    var mkdocs_page_input_path = "snippets/drone-dev.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Project Starling</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/getting-started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/background/">Background</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/single-drone-local-machine/">Single Drone on Local Machine</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/kube-single-drone-local-machine/">Single Drone on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/single-drone-drones/">Single Drone on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/multiple-drone-local-machine/">Multiple Drones on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/multiple-drone-drones/">Multiple Drones on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/windows-support/">Windows Support</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Additional Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-dashboard/">Dashboard Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/docker/">Understanding Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes/">Understanding Kubernetes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/flight_arena/">BRL Flight Arena</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/px4/">PX4 Details</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/example-controller/">Example Python Controller</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-deployment/">Example Kubernetes Deployments</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-mavros/">Mavros Container</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-ui/">Starling UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/build_system/">Build System</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/ideas/">Ideas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/MATLAB/">MATLAB (unstable)</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Project Starling</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Drone dev</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/UoBFlightLab/ProjectStarling/edit/master/docs/snippets/drone-dev.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="development-on-the-drone-and-simulator">Development on the Drone and Simulator<a class="headerlink" href="#development-on-the-drone-and-simulator" title="Permanent link">&para;</a></h2>
+<h3 id="useful-scripts">Useful Scripts:<a class="headerlink" href="#useful-scripts" title="Permanent link">&para;</a></h3>
+<p>There are a number of useful scripts in the <code>/scripts</code> directory of this repository. Scripts can be run from any location, but for this tutorial we assume the user is in the root directory.</p>
+<ol>
+<li><code>./scripts/start_k3s.sh</code> - This starts the cluster <ul>
+<li><code>-u</code> will uninstall the cluster from the machine (and remove any running processes)</li>
+<li><code>-sk</code> will skip the installation check for k3s</li>
+</ul>
+</li>
+<li><code>./scripts/start_single_px4sitl_gazebo.sh</code> - This starts the starling core functions (Dashboard and UI). It also starts the gazebo simulator and a 'drone' process running the PX4 SITL and a connected Mavros ROS2 node. Assumes the cluster has been started.<ul>
+<li><code>-d</code> will stop the gazebo and all connected 'drone' processes only (use if reloading the controller).</li>
+<li><code>-r</code> will restart the gazebo and all connected 'drone' processes. 
+  labels:
+app: nginx</li>
+<li><code>-sk</code> will skip the starting/check that the starling core functions are running.</li>
+<li><code>-ow</code> will automatically open the UI webpages.</li>
+</ul>
+</li>
+<li><code>./scripts/start_starling_base.sh</code> - This starts the starling user interface and dashboard. Automatically run by <code>start_single_px4sitl_gazebo.sh</code> </li>
+<li><code>./scripts/start_dashboard.sh</code> - This starts the dashboard process on the cluster. Assumes the cluster has already been started. Automatically run by <code>start_single_px4sitl_gazebo.sh</code> and <code>start_starling_base.sh</code> <ul>
+<li><code>-ow</code> will automatically open the UI webpages.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> The <code>./run_k3s</code> script internally runs <code>start_k3s.sh</code> and <code>start_single_px4sitl_gazebo.sh</code>. Any options passed will be forwarded to the relevant script.</p>
+</blockquote>
+<h3 id="modifying-the-example-controller">Modifying the example controller<a class="headerlink" href="#modifying-the-example-controller" title="Permanent link">&para;</a></h3>
+<p>In the <a href="https://github.com/UoBFlightLab/ProjectStarling/tree/master/controllers">controllers</a> folder there is an example_controller_python which you should have seen in action in the example above. The ROS2 package is in <a href="https://github.com/UoBFlightLab/ProjectStarling/tree/master/controllers/example_controller_python/example_controller_python">example_controller_python</a>. Any edits made to the ROS2 package can be built by running <code>make</code> in the controllers directory. This will use colcon build to build the node and output a local image named <code>example_controller_python</code>. </p>
+<p>Inside the controllers folder, there is an annotated kubernetes config file <a href="https://github.com/UoBFlightLab/ProjectStarling/blob/master/controllers/example_controller_python/k8.example_controller_python.amd64.yaml"><code>k8.example_controller_python.amd64.yaml</code></a>. This specifies the deployment of a <em>pod</em> which contains your local <code>example_controller_python</code> image (<a href="https://github.com/UoBFlightLab/ProjectStarling/blob/227b22fbd97ac58f5b34e4154e58d01f72f29988/controllers/example_controller_python/k8.example_controller_python.amd64.yaml#L49">this line</a>). </p>
+<p>Similar to before you can start up the local example controller by using the script:</p>
+<pre><code class="language-bash">./scripts/start_example_controller.sh
+</code></pre>
+<p>But if you have made a copy, or wish to run your own version of the configuration, you can manually deploy your controller by running the following:</p>
+<pre><code class="language-bash">k3s apply -f k8.example_controller_python.amd64.yaml
+k3s delete -f k8.example_controller_python.amd64.yaml # To delete
+</code></pre>
+<p>See <a href="../../details/kubernetes/">kuberenets configuration</a> for more details.  </p>
+<p>For debugging, you can both see the logs, and execute on your controller container through the dashboard. See <a href="../../details/kubernetes-dashboard/">instructions here</a></p>
+<p>Inside you can <code>source install/setup.bash</code> and run ROS2 commands like normal. </p>
+<h3 id="creating-your-own-from-scratch">Creating your own from scratch<a class="headerlink" href="#creating-your-own-from-scratch" title="Permanent link">&para;</a></h3>
+<p>Of course you can create your own controller from scratch. Inside your controller repository, the following is required
+1. Your ROS2 package folder (what would usually go inside the <code>dev_ws/src</code> directory)
+2. A Dockerfile (named <code>Dockerfile</code>) which is dervied <code>FROM uobflightlabstarling/starling-controller-base</code>, use the <a href="controllers/example_controller_python/Dockerfile">example Dockerfile</a> as a template. 
+3. A Kubernetes YAML config file specifying either a Pod or a deployment. Use the example <code>k8.example_controller_python.amd64.yaml</code> as a template. There are annoated comments. Also see <a href="../../details/kubernetes/">here</a> for more details.  </p>
+<p>Your Dockerfile can be built by running the following in the directory with the Dockerfile.</p>
+<pre><code>docker build -t &lt;name of your controller&gt; .
+</code></pre>
+<p>Once built, the configuration file must have a container config specifying your own image name. </p>
+<p>Your container can then be deployed manually using <code>k3s apply -f &lt;your config&gt;.yaml</code> as above.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2021 University of Bristol Flight Laboratory</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/UoBFlightLab/ProjectStarling/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

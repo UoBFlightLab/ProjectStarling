@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Starling UI - Project Starling</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Starling UI";
+    var mkdocs_page_input_path = "details/starling-ui.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Project Starling</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/getting-started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../background/">Background</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/single-drone-local-machine/">Single Drone on Local Machine</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/kube-single-drone-local-machine/">Single Drone on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/single-drone-drones/">Single Drone on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/multiple-drone-local-machine/">Multiple Drones on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/multiple-drone-drones/">Multiple Drones on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/windows-support/">Windows Support</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Additional Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kubernetes-dashboard/">Dashboard Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Understanding Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../kubernetes/">Understanding Kubernetes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../flight_arena/">BRL Flight Arena</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../px4/">PX4 Details</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../guide/example-controller/">Example Python Controller</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../kubernetes-deployment/">Example Kubernetes Deployments</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../starling-mavros/">Mavros Container</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Starling UI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#layout">Layout</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#building">Building</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running">Running</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#development">Development</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kubernetes-deployment">Kubernetes Deployment</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../build_system/">Build System</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/ideas/">Ideas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/MATLAB/">MATLAB (unstable)</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Project Starling</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Implementation &raquo;</li>
+        
+      
+    
+    <li>Starling UI</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/UoBFlightLab/ProjectStarling/edit/master/docs/details/starling-ui.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="starling-initial-ui">Starling Initial UI<a class="headerlink" href="#starling-initial-ui" title="Permanent link">&para;</a></h1>
+<p>Builds a container that serves a web-based UI for the system. Uses
+RobotWebTools' <code>ros2-web-bridge</code> and <code>rclnodejs</code> internally.</p>
+<p><img alt="starling-ui" src="/img/starling-ui.png" /></p>
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#starling-initial-ui">Starling Initial UI</a><ul>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#layout">Layout</a><ul>
+<li><a href="#building">Building</a></li>
+<li><a href="#running">Running</a></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#kubernetes-deployment">Kubernetes Deployment</a></li>
+</ul>
+</li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h2>
+<p>Contains several elements:
+- Contains a main page which publishes <code>std_msgs/String</code> to either the topic <code>/emergency_stop</code> or <code>/mission_start</code> depending on the button pressed
+- The javascript file <code>html/ros_buttons.js</code> contains the javascript control for the buttons
+- Button images are in the <code>html/images</code> directory</p>
+<h3 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h3>
+<p>Build through Makefile as normal, target name: <code>ui</code> from the <code>system</code> Makefile</p>
+<h3 id="running">Running<a class="headerlink" href="#running" title="Permanent link">&para;</a></h3>
+<p>To start the image:
+<code>docker run -it --rm -p 3000:3000 -p 9090:9090 starling-ui</code></p>
+<p>NB: Port 3000 is exposed for the webserver, while port 9090 is exposed for the
+websocket.</p>
+<p>Once the container is running, navigate to:
+<a href="http://127.0.0.1:3000/html/main.html"><code>http://127.0.0.1:3000/html/main.html</code></a></p>
+<p>In a connected ros2 instance, the command below can be run to see the output.
+Note, if the topic has not yet been published to, the command will exit
+immediately complaining that it could not determine the type. 
+fixes: either press the E-STOP button to publish an initial message or supply
+the type: <code>std_msgs/String</code> as a further argument.</p>
+<pre><code class="language-bash">ros2 topic echo /mission_start
+ros2 topic echo /emergency_stop
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>:
+Note that when running locally using docker, port 9090 is required for ros web bridge traffic. </p>
+</blockquote>
+<h3 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h3>
+<p>To start the image with development folder bound into the container, in this folder run:</p>
+<pre><code>docker run -it --rm --network projectstarling_default -v &quot;$(pwd)&quot;/html:/ros_ws/src/ros2-web-bridge/examples/html/ -p 3000:3000 -p 9090:9090 starling-ui
+</code></pre>
+<p>This will bind mount the html folder into the wanted directory. </p>
+<p>This will allow local changes made to the web files to be reflected by refreshing the page brings.</p>
+<h3 id="kubernetes-deployment">Kubernetes Deployment<a class="headerlink" href="#kubernetes-deployment" title="Permanent link">&para;</a></h3>
+<p>The UI can also be run within the kubernetes deployment and network. To start as a kubernetes Deployment simply apply the <code>kubernetes.yaml</code> file in this directory.</p>
+<pre><code class="language-bash">sudo k3s kubectl apply -f kubernetes.yaml
+</code></pre>
+<p>This will both start the <code>uobflightlabstarling/starling-ui</code> image, and a kubernetes service which exposes the website to outside of the cluster. The web page is then located at <a href="https://localhost:3000/html/main.html">https://localhost:3000/html/main.html</a>. </p>
+<blockquote>
+<p><strong>NOTE</strong>:
+Localhost port 9090 is also used for <code>ros_bridge</code> traffic</p>
+</blockquote>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<p>To support the full gamut of MAVROS messages, this will likely need to be built
+on top of an image containing the mavros_msgs package for ROS2. Lots of things
+are likely to need this so it may be worth making this one of the base layers
+for the system.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../build_system/" class="btn btn-neutral float-right" title="Build System">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../starling-mavros/" class="btn btn-neutral" title="Mavros Container"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2021 University of Bristol Flight Laboratory</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/UoBFlightLab/ProjectStarling/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../starling-mavros/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../build_system/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

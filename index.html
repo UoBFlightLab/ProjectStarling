@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Overview - Project Starling</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Overview";
+    var mkdocs_page_input_path = "README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Project Starling</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#drone-sandbox">Drone Sandbox</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simulation-to-reality">Simulation to Reality</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#single-and-multiple-drones">Single and Multiple Drones</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contact">Contact</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#faqs">FAQs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/getting-started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/background/">Background</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/single-drone-local-machine/">Single Drone on Local Machine</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/kube-single-drone-local-machine/">Single Drone on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/single-drone-drones/">Single Drone on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/multiple-drone-local-machine/">Multiple Drones on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/multiple-drone-drones/">Multiple Drones on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/windows-support/">Windows Support</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Additional Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="details/kubernetes-dashboard/">Dashboard Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/docker/">Understanding Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/kubernetes/">Understanding Kubernetes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/flight_arena/">BRL Flight Arena</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="details/px4/">PX4 Details</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="guide/example-controller/">Example Python Controller</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/kubernetes-deployment/">Example Kubernetes Deployments</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/starling-mavros/">Mavros Container</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/starling-ui/">Starling UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="details/build_system/">Build System</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="other/ideas/">Ideas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="other/MATLAB/">MATLAB (unstable)</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Project Starling</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Home &raquo;</li>
+        
+      
+    
+    <li>Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/UoBFlightLab/ProjectStarling/edit/master/docs/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="project-starling">Project Starling<a class="headerlink" href="#project-starling" title="Permanent link">&para;</a></h1>
+<p>The purpose of Starling is to update the control systems within the Bristol Robotics Laboratory Flight Arena in order to reduce the barrier to entry for those who wish to experiment with, and fly real drones.</p>
+<p>This project takes recent advancements in cloud computing, namely containerisation (docker) and container orchestration (kubernetes) as the core framework to manage networking and drone deployment, whether virtual (using SITL) or on real drones running companion computers (e.g. raspberry pi).</p>
+<p>However a key requirement of the system is to allow users to be able to operate drones without needing to know more about the udnerlying implementation.</p>
+<p>This systems provides a number of key features.</p>
+<ul>
+<li>Primary support for ROS2 and MavLink</li>
+<li>Built in simulation stack based on Gazebo</li>
+<li>Quick transition from simulation to flying controllers on real drones.</li>
+</ul>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>Please refer to the documentation at <a href="https://uobflightlab.github.io/ProjectStarling">uobflightlab.github.io/ProjectStarling</a> for detailed instructions and explanations of how to use this system.</p>
+<p>The documentation is built using <a href="https://www.mkdocs.org/">MKDocs</a> and can be served locally.</p>
+<ol>
+<li>Install requirements <code>pip install -r docs/requirements.txt</code></li>
+<li>In the project root, run <code>make docs</code> or <code>make serve-docs</code> if you want live viewing (serving to <code>localhost:8000</code>)</li>
+</ol>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h3 id="drone-sandbox">Drone Sandbox<a class="headerlink" href="#drone-sandbox" title="Permanent link">&para;</a></h3>
+<p>Starling encapsulates much of the set up and configuration required for you to get your drone based experiments up and running. It encapsulates the installation and running of simulators (e.g. Gazebo), the configuration of Software-In-The-Loop (SITL) for common autopilot software (e.g. PX4 or Ardupilot) and the deployment of these systems across a network of machines. </p>
+<p>This streamlines the controller development process, and hopefully allows you to develop your controllers and experiments much faster and more directly, hopefully without having to deal with lower level configuration or networking issues.</p>
+<h3 id="simulation-to-reality">Simulation to Reality<a class="headerlink" href="#simulation-to-reality" title="Permanent link">&para;</a></h3>
+<p>Due to using containerisation, all these packages are availble to be deployed on any machine at a moments notice. This includes the companion computer on your vehicle. This way you can write and test code against the simulator to later be executed on the real vehicles with no change on your end.</p>
+<h3 id="single-and-multiple-drones">Single and Multiple Drones<a class="headerlink" href="#single-and-multiple-drones" title="Permanent link">&para;</a></h3>
+<p>Starling supports both single and multiple drone centralised and decentralised applications out of the box as a nice side effect of the architecture of the system. Multiple drones are generated by simply scaling the drone process, in theory allowing for as many drones as your machine can handle. </p>
+<p>By virtue of the architecture, the system also includes failure recovery and detection mechanics.</p>
+<h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<p>The initial developers of this project are:</p>
+<ul>
+<li>Mickey Li - <a href="mailto:mickey.li@bristol.ac.uk">email</a> - <a href="github.com/mhl787156">github</a></li>
+<li>Robert Clarke - <a href="mailto:robert.clarke@bristol.ac.uk">email</a> - <a href="github.com/rob-clarke">github</a></li>
+</ul>
+<h2 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Permanent link">&para;</a></h2>
+<p>Please see documentation, or raise an <a href="github.com/UoBFlightLab/ProjectStarling/issues">Issue on the github repo</a></p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This project is released under the MIT license. Please see the <a href="https://github.com/UoBFlightLab/ProjectStarling/blob/master/LICENSE">License file</a> for more details. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="guide/getting-started/" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2021 University of Bristol Flight Laboratory</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/UoBFlightLab/ProjectStarling/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="guide/getting-started/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

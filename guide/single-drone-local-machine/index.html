@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Single Drone on Local Machine - Project Starling</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Single Drone on Local Machine";
+    var mkdocs_page_input_path = "guide/single-drone-local-machine.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Project Starling</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/background/">Background</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guides</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Single Drone on Local Machine</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#starting-the-drone-and-simulator">Starting the Drone and Simulator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#offboard-control">Offboard Control</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-connecting-a-ground-control-station-via-mavlink">1. Connecting a Ground Control Station via Mavlink</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-running-example-ros2-offboard-controller-node">2. Running Example ROS2 Offboard Controller node</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#onboard-control">Onboard Control</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementing-a-controller">Implementing a Controller</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#modifying-the-example-controller">Modifying the example controller</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-your-own-from-scratch">Creating your own from scratch</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting-faqs">Troubleshooting/ FAQs</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../kube-single-drone-local-machine/">Single Drone on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../single-drone-drones/">Single Drone on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../multiple-drone-local-machine/">Multiple Drones on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../multiple-drone-drones/">Multiple Drones on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../windows-support/">Windows Support</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Additional Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-dashboard/">Dashboard Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/docker/">Understanding Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes/">Understanding Kubernetes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/flight_arena/">BRL Flight Arena</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/px4/">PX4 Details</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../example-controller/">Example Python Controller</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-deployment/">Example Kubernetes Deployments</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-mavros/">Mavros Container</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-ui/">Starling UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/build_system/">Build System</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/ideas/">Ideas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/MATLAB/">MATLAB (unstable)</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Project Starling</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guides &raquo;</li>
+        
+      
+    
+    <li>Single Drone on Local Machine</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/UoBFlightLab/ProjectStarling/edit/master/docs/guide/single-drone-local-machine.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="single-drone-local-machine">Single Drone Local Machine<a class="headerlink" href="#single-drone-local-machine" title="Permanent link">&para;</a></h1>
+<p>Follow these instructions for quick and easy testing of controllers on a single drone on a single local machine. <strong>Use in the following scenarios</strong>:</p>
+<ol>
+<li>Local development of single drone applications in simulation (gazebo)</li>
+<li>Local development of offboard (drone control software on pc not on drone)</li>
+<li>Local development of onboard (drone control software running on drone itself)</li>
+<li>No requirement of imitating the real drone software/ communication architecture</li>
+</ol>
+<p><strong>This is considered to be step 1 for the Starling development process.</strong></p>
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#single-drone-local-machine">Single Drone Local Machine</a><ul>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#starting-the-drone-and-simulator">Starting the Drone and Simulator</a></li>
+<li><a href="#offboard-control">Offboard Control</a><ul>
+<li><a href="#1-connecting-a-ground-control-station-via-mavlink">1. Connecting a Ground Control Station via Mavlink</a></li>
+<li><a href="#2-running-example-ros2-offboard-controller-node">2. Running Example ROS2 Offboard Controller node</a></li>
+</ul>
+</li>
+<li><a href="#onboard-control">Onboard Control</a></li>
+<li><a href="#implementing-a-controller">Implementing a Controller</a><ul>
+<li><a href="#modifying-the-example-controller">Modifying the example controller</a></li>
+<li><a href="#creating-your-own-from-scratch">Creating your own from scratch</a></li>
+</ul>
+</li>
+<li><a href="#troubleshooting-faqs">Troubleshooting/ FAQs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="starting-the-drone-and-simulator">Starting the Drone and Simulator<a class="headerlink" href="#starting-the-drone-and-simulator" title="Permanent link">&para;</a></h2>
+<p>First check that you have installed the single prerequisit of <code>docker</code>, see <a href="/guide/getting-started">Getting Started</a></p>
+<p>In the root directory, execute <code>make run</code> (or <code>docker-compose up</code>) in a terminal. This will start the following:</p>
+<ol>
+<li>Gazebo simulation enviornment running 1 Iris quadcopter model </li>
+<li>A SITL (Software In The Loop) instance running the PX4 autopilot.</li>
+<li>A Mavros node connected to the SITL instance </li>
+<li>A simple UI with a go and estop button. </li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> this might take a while on first run as downloads are required.</p>
+</blockquote>
+<p>The User Interfaces are available in the following locations:</p>
+<ul>
+<li>Go to <a href="http://localhost:8080"><code>http://localhost:8080</code></a> in a browser to (hopefully) see the gazebo simulator.</li>
+<li>Go to <a href="http://localhost:3000/html/main.html"><code>http://localhost:3000/html/main.html</code></a> in a browser to see the starling user interface containing go/stop buttons.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> All specified sites can be accessed from other machines by replacing <code>localhost</code> with your computer's IP address.</p>
+<p><strong>Note:</strong> Sometimes it might take a bit of time for the UIs to become available, give it a minute and refresh the page. With Gazebo you may accidentally be too zoomed in, or the grid may not show up. Use the mouse wheel to zoom in and out. The grid can be toggled on the left hand pane.  </p>
+</blockquote>
+<h2 id="offboard-control">Offboard Control<a class="headerlink" href="#offboard-control" title="Permanent link">&para;</a></h2>
+<p>There are two supported methods for offboard control of either the SITL or real drones.</p>
+<ol>
+<li>Control drone directly via Mavlink, by Ground Control Station (GCS) or other Mavlink compatible method (e.g. Dronekit).</li>
+<li>Control drone via ROS2 node</li>
+</ol>
+<h3 id="1-connecting-a-ground-control-station-via-mavlink">1. Connecting a Ground Control Station via Mavlink<a class="headerlink" href="#1-connecting-a-ground-control-station-via-mavlink" title="Permanent link">&para;</a></h3>
+<p>If a mavros or sitl instance is running, there will be a GCS link on <code>udp://localhost:14553</code> (hopefully). This means that you can run a GCS such as QGroundControl or Mission Planner:</p>
+<ul>
+<li>Create a comms link to <code>localhost:14553</code> on UDP </li>
+<li>The GCS should auto detect the drone(s) </li>
+<li>You should be able to control and monitor any sitl drone through the standard mavlink interface. </li>
+</ul>
+<p>This is a quick an easy way to control the SITL instance via Mavlink.</p>
+<h3 id="2-running-example-ros2-offboard-controller-node">2. Running Example ROS2 Offboard Controller node<a class="headerlink" href="#2-running-example-ros2-offboard-controller-node" title="Permanent link">&para;</a></h3>
+<p>An example offboard ROS2 controller can then be conncted to SITL by running the following in a separate terminal:</p>
+<pre><code class="language-bash">docker run -it --rm --network projectstarling_default uobflightlabstarling/example_controller_python
+</code></pre>
+<p>This will download and run the <code>example_controller_python</code> image from <code>uobflightlabstarling</code> on docker hub. <code>-it</code> opens an interactive terminal. <code>--rm</code> removes the container when completed. <code>--network</code> attaches the container to the default network created by <code>make run</code> or <code>docker-compose</code>. The default network name is <code>&lt;foldername&gt;_default</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> The controller may complain that it cannot find the drone. Double check that the name of the root folder matches the one passed to <code>--network</code>.</p>
+</blockquote>
+<p>When run, the example will confirm in the terminal that it has connected and that it is waiting for mission start. To start the mission, press the green go button in the <a href="http://localhost:3000/html/main.html">starling user interface</a> which will send a message over <code>/mission_start</code> topic. A confirmation message should appear in the terminal, and the drone will arm (drone propellors spinning up) and takeoff. It will fly in circles for 10 seconds before landing and disarming. </p>
+<h2 id="onboard-control">Onboard Control<a class="headerlink" href="#onboard-control" title="Permanent link">&para;</a></h2>
+<p>TODO: Implement example onboard controller and associated scripts</p>
+<h2 id="implementing-a-controller">Implementing a Controller<a class="headerlink" href="#implementing-a-controller" title="Permanent link">&para;</a></h2>
+<h3 id="modifying-the-example-controller">Modifying the example controller<a class="headerlink" href="#modifying-the-example-controller" title="Permanent link">&para;</a></h3>
+<p>In the <a href="https://github.com/UoBFlightLab/ProjectStarling/tree/master/controllers">controllers</a> folder there is an example_controller_python which you should have seen in action in the example above. The ROS2 package is in <a href="https://github.com/UoBFlightLab/ProjectStarling/tree/master/controllers/example_controller_python/example_controller_python">example_controller_python</a>. Any edits made to the ROS2 package can be built by running <code>make</code> in the controllers directory. This will use colcon build to build the node and output a local image named <code>example_controller_python</code>. This local image can be run as follows:</p>
+<pre><code class="language-bash">docker run -it --name example_controller --rm --network projectstarling_default example_controller_python
+</code></pre>
+<blockquote>
+<p>Note that because <code>uobflightlabstarling</code> is not referenced, it will look locally for a docker image. <code>--name</code> gives this instance a name which we can refer to.</p>
+</blockquote>
+<p>Each container essentially runs its own operating system (see wiki for more details). Just as you could ssh into another machine, you can also inspect a running container:</p>
+<pre><code class="language-bash">docker exec -it example_controller bash
+</code></pre>
+<blockquote>
+<p>Where <code>example_controller</code> is the name we gave the running instance. We essentially tell the container to execute <code>bash</code> for us to get a command line</p>
+</blockquote>
+<p>Inside you can <code>source install/setup.bash</code> and run ROS2 commands like normal. </p>
+<h3 id="creating-your-own-from-scratch">Creating your own from scratch<a class="headerlink" href="#creating-your-own-from-scratch" title="Permanent link">&para;</a></h3>
+<p>Of course you can create your own controller from scratch. Inside your controller repository, the following is required
+1. Your ROS2 package folder (what would usually go inside the <code>dev_ws/src</code> directory)
+2. A Dockerfile (named <code>Dockerfile</code>) which is dervied <code>FROM uobflightlabstarling/starling-controller-base</code>, use the <a href="controllers/example_controller_python/Dockerfile">example Dockerfile</a> as a template. </p>
+<p>Your Dockerfile can be built by running the following in the directory with the Dockerfile.</p>
+<pre><code>docker build -t &lt;name of your controller&gt; .
+</code></pre>
+<p>Your container can then be run as above.</p>
+<h2 id="troubleshooting-faqs">Troubleshooting/ FAQs<a class="headerlink" href="#troubleshooting-faqs" title="Permanent link">&para;</a></h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../kube-single-drone-local-machine/" class="btn btn-neutral float-right" title="Single Drone on Local Cluster">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../details/background/" class="btn btn-neutral" title="Background"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2021 University of Bristol Flight Laboratory</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/UoBFlightLab/ProjectStarling/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../details/background/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../kube-single-drone-local-machine/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

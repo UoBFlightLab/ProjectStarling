@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Single Drone on Local Cluster - Project Starling</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Single Drone on Local Cluster";
+    var mkdocs_page_input_path = "guide/kube-single-drone-local-machine.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Project Starling</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Home</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/background/">Background</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guides</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../single-drone-local-machine/">Single Drone on Local Machine</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Single Drone on Local Cluster</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#drone-and-simulator-on-a-local-cluster">Drone and Simulator on a local cluster</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#starting-the-cluster">Starting the cluster</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#restarting-or-deleting-the-drone-or-simulator-in-the-cluster">Restarting or deleting the drone or simulator in the cluster</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-logs-on-the-dashboard">Accessing logs on the dashboard</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controlling-the-drones">Controlling the Drones</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#offboard-control">Offboard Control</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-connecting-a-ground-control-station-via-mavlink">1. Connecting a Ground Control Station via Mavlink</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-running-example-ros2-offboard-controller-node">2. Running Example ROS2 Offboard Controller node</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#onboard-control">Onboard Control</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#development-on-the-drone-and-simulator">Development on the Drone and Simulator</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#useful-scripts">Useful Scripts:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modifying-the-example-controller">Modifying the example controller</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-your-own-from-scratch">Creating your own from scratch</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting-faqs">Troubleshooting/ FAQs</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../single-drone-drones/">Single Drone on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../multiple-drone-local-machine/">Multiple Drones on Local Cluster</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../multiple-drone-drones/">Multiple Drones on Hardware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../windows-support/">Windows Support</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Additional Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-dashboard/">Dashboard Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/docker/">Understanding Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes/">Understanding Kubernetes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/flight_arena/">BRL Flight Arena</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/px4/">PX4 Details</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../example-controller/">Example Python Controller</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/kubernetes-deployment/">Example Kubernetes Deployments</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-mavros/">Mavros Container</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/starling-ui/">Starling UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../details/build_system/">Build System</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Miscellaneous</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/ideas/">Ideas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../other/MATLAB/">MATLAB (unstable)</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Project Starling</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guides &raquo;</li>
+        
+      
+    
+    <li>Single Drone on Local Cluster</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/UoBFlightLab/ProjectStarling/edit/master/docs/guide/kube-single-drone-local-machine.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="single-drone-on-local-machine-using-cluster-architecture">Single Drone on Local Machine Using Cluster Architecture<a class="headerlink" href="#single-drone-on-local-machine-using-cluster-architecture" title="Permanent link">&para;</a></h1>
+<p>Follow these instructions for quick and easy testing of controllers on a single drone on a single local machine. <strong>Use in the following scenarios</strong>:</p>
+<ol>
+<li>Local development of single (or multiple) drone applications in simulation (gazebo)</li>
+<li>Local development of offboard (drone control software on pc not on drone)</li>
+<li>Local development of distributed onboard (drone control software running on drone itself)</li>
+<li>Testing controllers/software on the real drone software/ communications architecture that would be used in the BRL.</li>
+</ol>
+<p><strong>This is considered to be step 2a for the Starling development process.</strong></p>
+<blockquote>
+<p><strong>Note:</strong> Reading the <a href="../../details/background/">background</a> may be useful but not necessary.</p>
+</blockquote>
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#single-drone-on-local-machine-using-cluster-architecture">Single Drone on Local Machine Using Cluster Architecture</a><ul>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#drone-and-simulator-on-a-local-cluster">Drone and Simulator on a local cluster</a><ul>
+<li><a href="#starting-the-cluster">Starting the cluster</a></li>
+<li><a href="#restarting-or-deleting-the-drone-or-simulator-in-the-cluster">Restarting or deleting the drone or simulator in the cluster</a></li>
+<li><a href="#accessing-logs-on-the-dashboard">Accessing logs on the dashboard</a></li>
+</ul>
+</li>
+<li><a href="#controlling-the-drones">Controlling the Drones</a><ul>
+<li><a href="#offboard-control">Offboard Control</a><ul>
+<li><a href="#1-connecting-a-ground-control-station-via-mavlink">1. Connecting a Ground Control Station via Mavlink</a></li>
+<li><a href="#2-running-example-ros2-offboard-controller-node">2. Running Example ROS2 Offboard Controller node</a></li>
+</ul>
+</li>
+<li><a href="#onboard-control">Onboard Control</a></li>
+</ul>
+</li>
+<li><a href="#development-on-the-drone-and-simulator">Development on the Drone and Simulator</a><ul>
+<li><a href="#useful-scripts">Useful Scripts:</a></li>
+<li><a href="#modifying-the-example-controller">Modifying the example controller</a></li>
+<li><a href="#creating-your-own-from-scratch">Creating your own from scratch</a></li>
+</ul>
+</li>
+<li><a href="#troubleshooting-faqs">Troubleshooting/ FAQs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="drone-and-simulator-on-a-local-cluster">Drone and Simulator on a local cluster<a class="headerlink" href="#drone-and-simulator-on-a-local-cluster" title="Permanent link">&para;</a></h2>
+<p>First check that you have installed the single prerequisit of <code>docker</code>, see <a href="/guide/getting-started">Getting Started</a></p>
+<h3 id="starting-the-cluster">Starting the cluster<a class="headerlink" href="#starting-the-cluster" title="Permanent link">&para;</a></h3>
+<p>In the root directory run one of the following in a terminal</p>
+<pre><code class="language-bash">./run_k3s.sh
+./run_k3s.sh -ow # Will automatically open the UI webpages for you. 
+</code></pre>
+<p>This will start the following:</p>
+<ol>
+<li>Install the cluster root node which governs the running of all the other parts.</li>
+<li>A node running the Gazebo simulation environment </li>
+<li>A node running the following:<ol>
+<li>An initialisation routine spawning 1 Iris quadcopter model </li>
+<li>A SITL (Software In The Loop) instance running the PX4 autopilot.</li>
+<li>A MAVROS node connected to the SITL instance </li>
+</ol>
+</li>
+<li>A simple UI with a go and estop button. </li>
+<li>The cluster control dashboard (printing out the access key string)</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> this might take a while on first run as downloads are required.</p>
+<p><strong>Note:</strong> this installation will ask for root (sudo) permission when necessary.</p>
+</blockquote>
+<p>The User Interfaces are available in the following locations:</p>
+<ul>
+<li>Go to <a href="http://localhost:8080"><code>http://localhost:8080</code></a> in a browser to (hopefully) see the gazebo simulator.</li>
+<li>Go to <a href="http://localhost:3000/html/main.html"><code>http://localhost:3000/html/main.html</code></a> in a browser to see the starling user interface containing go/stop buttons.</li>
+<li>Go to <a href="http://localhost:31771"><code>http://localhost:31771</code></a> in a browser to see the cluster dashboard. There is a lot here, and this guide will point you to the key functions. Please see <a href="../../details/kubernetes-dashboard/">this page</a> for further details.<ul>
+<li>Your browser of choice may not like the web-page and complain of certificate errors. Please ignore this and continue onwards. You may have to click 'advanced' or a similar option for the browser to let you in.</li>
+<li>To log in to the site, you will need the long login Token which is hopefully displayed by <code>run_k3s.sh</code>. This token should also be automatically placed onto your clipboard for pasting.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> All specified sites can be accessed from other machines by replacing <code>localhost</code> with your computer's IP address.</p>
+<p><strong>Note:</strong> Sometimes it might take a bit of time for the UIs to become available, give it a minute and refresh the page. With Gazebo you may accidentally be too zoomed in, or the grid may not show up. Use the mouse wheel to zoom in and out. The grid can be toggled on the left hand pane.  </p>
+</blockquote>
+<h3 id="restarting-or-deleting-the-drone-or-simulator-in-the-cluster">Restarting or deleting the drone or simulator in the cluster<a class="headerlink" href="#restarting-or-deleting-the-drone-or-simulator-in-the-cluster" title="Permanent link">&para;</a></h3>
+<p>There may be cases where you wish to restart or refresh either the software running on the drones or the simulator itself (e.g. removing old models):</p>
+<pre><code class="language-bash">./run_k3s.sh -d # or --delete will remove the gazebo and drone instances
+./run_k3s.sh -r # or --restart will restart the gazebo and drone instances
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> you can also add the <code>-sk</code> command which will skip the k3s re-download step and the dashboard check, i.e. <code>./run_k3s.sh -sk -r</code></p>
+</blockquote>
+<p>If you wish to remove the cluster and all associated software from the machine, you will need to uninstall:</p>
+<pre><code class="language-bash">./run_k3s.sh --uninstall 
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> This will remove everything to do with the starling cluster. The dashboard access token will be deleted. The container images will remain on your machine, but to remove those as well run <code>docker system prune --volumes</code>. </p>
+</blockquote>
+<h3 id="accessing-logs-on-the-dashboard">Accessing logs on the dashboard<a class="headerlink" href="#accessing-logs-on-the-dashboard" title="Permanent link">&para;</a></h3>
+<p>Please see the <a href="/details/kubernetes-dashboard">instructions here</a></p>
+<h2 id="controlling-the-drones">Controlling the Drones<a class="headerlink" href="#controlling-the-drones" title="Permanent link">&para;</a></h2>
+<h3 id="offboard-control">Offboard Control<a class="headerlink" href="#offboard-control" title="Permanent link">&para;</a></h3>
+<p>There are two supported methods for offboard control of either the SITL or real drones.</p>
+<ol>
+<li>Control drone directly via Mavlink, by Ground Control Station (GCS) or other Mavlink compatible method (e.g. Dronekit).</li>
+<li>Control drone via ROS2 node</li>
+</ol>
+<h4 id="1-connecting-a-ground-control-station-via-mavlink">1. Connecting a Ground Control Station via Mavlink<a class="headerlink" href="#1-connecting-a-ground-control-station-via-mavlink" title="Permanent link">&para;</a></h4>
+<p>If a mavros or sitl instance is running, there will be a GCS link on <code>udp://localhost:14553</code> (hopefully). This means that you can run a GCS such as QGroundControl or Mission Planner:</p>
+<ul>
+<li>Create a comms link to <code>localhost:14553</code> on UDP </li>
+<li>The GCS should auto detect the drone(s) </li>
+<li>You should be able to control and monitor any sitl drone through the standard mavlink interface. </li>
+</ul>
+<p>This is a quick an easy way to control the SITL instance via Mavlink.</p>
+<h4 id="2-running-example-ros2-offboard-controller-node">2. Running Example ROS2 Offboard Controller node<a class="headerlink" href="#2-running-example-ros2-offboard-controller-node" title="Permanent link">&para;</a></h4>
+<p>An example offboard ROS2 controller can then be connected to SITL by running the following in a terminal:</p>
+<pre><code class="language-bash">./scripts/start_example_controller.sh
+</code></pre>
+<p>This will first build the example controller so it is available locally. Then deploy the example controller to the cluster. It will take a few minutes to startup.</p>
+<p>When run, the example will confirm in the terminal that it has connected and that it is waiting for mission start. To start the mission, press the green go button in the <a href="http://localhost:3000/html/main.html">starling user interface</a> which will send a message over <code>/mission_start</code> topic. A confirmation message should appear in the terminal, and the drone will arm (drone propellors spinning up) and takeoff. It will fly in circles for 10 seconds before landing and disarming. </p>
+<p>Once the controller has completed, the process will exit and the controller will restart, allowing you to repeat the controller.</p>
+<p>If used with multiple vehicles, it will automatically find all drones broadcasting mavros topics, and start a controller for each one. </p>
+<p>To remove or restart the controller, use the <code>-d</code> or <code>-r</code> options respectively with the script. </p>
+<pre><code class="language-bash">./scripts/start_example_controller.sh -d # Delete or Remove controller
+./scripts/start_example_controller.sh -r # Restart controller
+</code></pre>
+<h3 id="onboard-control">Onboard Control<a class="headerlink" href="#onboard-control" title="Permanent link">&para;</a></h3>
+<p>TODO: Implement example onboard controller and associated scripts</p>
+<h2 id="development-on-the-drone-and-simulator">Development on the Drone and Simulator<a class="headerlink" href="#development-on-the-drone-and-simulator" title="Permanent link">&para;</a></h2>
+<h3 id="useful-scripts">Useful Scripts:<a class="headerlink" href="#useful-scripts" title="Permanent link">&para;</a></h3>
+<p>There are a number of useful scripts in the <code>/scripts</code> directory of this repository. Scripts can be run from any location, but for this tutorial we assume the user is in the root directory.</p>
+<ol>
+<li><code>./scripts/start_k3s.sh</code> - This starts the cluster <ul>
+<li><code>-u</code> will uninstall the cluster from the machine (and remove any running processes)</li>
+<li><code>-sk</code> will skip the installation check for k3s</li>
+</ul>
+</li>
+<li><code>./scripts/start_single_px4sitl_gazebo.sh</code> - This starts the starling core functions (Dashboard and UI). It also starts the gazebo simulator and a 'drone' process running the PX4 SITL and a connected Mavros ROS2 node. Assumes the cluster has been started.<ul>
+<li><code>-d</code> will stop the gazebo and all connected 'drone' processes only (use if reloading the controller).</li>
+<li><code>-r</code> will restart the gazebo and all connected 'drone' processes. 
+  labels:
+app: nginx</li>
+<li><code>-sk</code> will skip the starting/check that the starling core functions are running.</li>
+<li><code>-ow</code> will automatically open the UI webpages.</li>
+</ul>
+</li>
+<li><code>./scripts/start_starling_base.sh</code> - This starts the starling user interface and dashboard. Automatically run by <code>start_single_px4sitl_gazebo.sh</code> </li>
+<li><code>./scripts/start_dashboard.sh</code> - This starts the dashboard process on the cluster. Assumes the cluster has already been started. Automatically run by <code>start_single_px4sitl_gazebo.sh</code> and <code>start_starling_base.sh</code> <ul>
+<li><code>-ow</code> will automatically open the UI webpages.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> The <code>./run_k3s</code> script internally runs <code>start_k3s.sh</code> and <code>start_single_px4sitl_gazebo.sh</code>. Any options passed will be forwarded to the relevant script.</p>
+</blockquote>
+<h3 id="modifying-the-example-controller">Modifying the example controller<a class="headerlink" href="#modifying-the-example-controller" title="Permanent link">&para;</a></h3>
+<p>In the <a href="https://github.com/UoBFlightLab/ProjectStarling/tree/master/controllers">controllers</a> folder there is an example_controller_python which you should have seen in action in the example above. The ROS2 package is in <a href="https://github.com/UoBFlightLab/ProjectStarling/tree/master/controllers/example_controller_python/example_controller_python">example_controller_python</a>. Any edits made to the ROS2 package can be built by running <code>make</code> in the controllers directory. This will use colcon build to build the node and output a local image named <code>example_controller_python</code>. </p>
+<p>Inside the controllers folder, there is an annotated kubernetes config file <a href="https://github.com/UoBFlightLab/ProjectStarling/blob/master/controllers/example_controller_python/k8.example_controller_python.amd64.yaml"><code>k8.example_controller_python.amd64.yaml</code></a>. This specifies the deployment of a <em>pod</em> which contains your local <code>example_controller_python</code> image (<a href="https://github.com/UoBFlightLab/ProjectStarling/blob/227b22fbd97ac58f5b34e4154e58d01f72f29988/controllers/example_controller_python/k8.example_controller_python.amd64.yaml#L49">this line</a>). </p>
+<p>Similar to before you can start up the local example controller by using the script:</p>
+<pre><code class="language-bash">./scripts/start_example_controller.sh
+</code></pre>
+<p>But if you have made a copy, or wish to run your own version of the configuration, you can manually deploy your controller by running the following:</p>
+<pre><code class="language-bash">k3s apply -f k8.example_controller_python.amd64.yaml
+k3s delete -f k8.example_controller_python.amd64.yaml # To delete
+</code></pre>
+<p>See <a href="../../details/kubernetes/">kuberenets configuration</a> for more details.  </p>
+<p>For debugging, you can both see the logs, and execute on your controller container through the dashboard. See <a href="../../details/kubernetes-dashboard/">instructions here</a></p>
+<p>Inside you can <code>source install/setup.bash</code> and run ROS2 commands like normal. </p>
+<h3 id="creating-your-own-from-scratch">Creating your own from scratch<a class="headerlink" href="#creating-your-own-from-scratch" title="Permanent link">&para;</a></h3>
+<p>Of course you can create your own controller from scratch. Inside your controller repository, the following is required
+1. Your ROS2 package folder (what would usually go inside the <code>dev_ws/src</code> directory)
+2. A Dockerfile (named <code>Dockerfile</code>) which is dervied <code>FROM uobflightlabstarling/starling-controller-base</code>, use the <a href="controllers/example_controller_python/Dockerfile">example Dockerfile</a> as a template. 
+3. A Kubernetes YAML config file specifying either a Pod or a deployment. Use the example <code>k8.example_controller_python.amd64.yaml</code> as a template. There are annoated comments. Also see <a href="../../details/kubernetes/">here</a> for more details.  </p>
+<p>Your Dockerfile can be built by running the following in the directory with the Dockerfile.</p>
+<pre><code>docker build -t &lt;name of your controller&gt; .
+</code></pre>
+<p>Once built, the configuration file must have a container config specifying your own image name. </p>
+<p>Your container can then be deployed manually using <code>k3s apply -f &lt;your config&gt;.yaml</code> as above.</p>
+<h2 id="troubleshooting-faqs">Troubleshooting/ FAQs<a class="headerlink" href="#troubleshooting-faqs" title="Permanent link">&para;</a></h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../single-drone-drones/" class="btn btn-neutral float-right" title="Single Drone on Hardware">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../single-drone-local-machine/" class="btn btn-neutral" title="Single Drone on Local Machine"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2021 University of Bristol Flight Laboratory</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/UoBFlightLab/ProjectStarling/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../single-drone-local-machine/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../single-drone-drones/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
