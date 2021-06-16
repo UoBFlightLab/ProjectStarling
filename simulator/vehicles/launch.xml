@@ -1,0 +1,21 @@
+<!-- <?xml version="1.0"?> -->
+<launch>
+
+    <arg name="gazebo" default="false" />
+    <arg name="clover2" default="false" />
+    <arg name="iris" default="false" />
+
+    <include if="$(var gazebo)" file="/ros_ws/launch/gzweb.launch.xml" />
+
+    <!-- If a vehicle is specified, run the vehicle if it exists -->
+    <include if="$(var clover2)" file="$(dirname)/clover2.launch.xml">
+        <arg name="spawn_only" value="true"/>
+    </include>
+
+    <include if="$(var iris)" file="$(dirname)/iris.launch.xml">
+        <arg name="spawn_only" value="true"/>
+    </include>
+
+    <!-- Add new vehicles here -->
+
+</launch>
