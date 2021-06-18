@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  sitl:
+    image: uobflightlabstarling/starling-sim-arducopter:latest
+    environment:
+      - AP_SYSID=ip
+      - AP_DISTRIBUTE=1
+  
+  gateway:
+    image: uobflightlabstarling/mavp2p
+    command: get_sitls.sh udps:0.0.0.0:14551
+    ports:
+      - 14551:14551/udp
+

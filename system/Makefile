@@ -1,6 +1,6 @@
 MAKEFILE_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-all: mavros controller-base
+all: mavros controller-base mavp2p
 
 controller-base:
 	docker build -t starling-controller-base $(MAKEFILE_DIR)/controller-base
@@ -14,4 +14,7 @@ mavros_all_arch:
 ui:
 	docker build -t starling-ui $(MAKEFILE_DIR)/ui
 
-.PHONY: mavros mavros_all_arch controller-base ui all
+mavp2p:
+	docker build -t mavp2p $(MAKEFILE_DIR)/mavp2p --build-arg TARGETARCH=amd64
+
+.PHONY: mavros mavros_all_arch controller-base ui mavp2p all

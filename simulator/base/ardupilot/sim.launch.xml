@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-    <executable cwd="/root" cmd="/src/ardupilot/build/sitl/bin/arducopter" output="screen"/>
-    
-    <include file="/ros_ws/launch/gzweb.launch.xml" />
-
-</launch>

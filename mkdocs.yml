@@ -34,9 +34,11 @@ nav:
     - "PX4 Details": "details/px4.md"
     - "Example Python Controller": "guide/example-controller.md"
     - "Example Kubernetes Deployments": "details/kubernetes-deployment.md"
-    - "Mavros Container": "details/starling-mavros.md"
-    - "Starling UI": "details/starling-ui.md"
     - "Build System": "details/build_system.md"
+  - "Docker Images":
+    - "starling-ui": "docker-images/starling-ui.md"
+    - "starling-mavros": "docker-images/starling-mavros.md"
+    - "starling-sim-ardu*": "docker-images/starling-sim-ardupilot.md"
   - "Miscellaneous":
     - "Ideas": "other/ideas.md"
     - "MATLAB (unstable)": "other/MATLAB.md"
