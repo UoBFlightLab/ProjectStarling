@@ -1,0 +1,12 @@
+<launch>
+    <arg name="vehicle_namespace" default="$(env VEHICLE_NAMESPACE vehicle_$(env VEHICLE_MAVLINK_SYSID))" />
+
+    <group>
+        <push-ros-namespace namespace="$(var vehicle_namespace)"/>
+        <!-- clover_ros2 -->
+        <include file="$(find-pkg-share clover_ros2)/launch/clover.launch.xml">
+            <!-- <arg name="simulator" value="$(var simulator)"/> -->
+        </include>
+    </group>
+
+</launch>

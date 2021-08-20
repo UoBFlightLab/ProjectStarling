@@ -34,7 +34,7 @@ group "stage1" {
 }
 
 group "stage2" {
-    targets = ["simulator-px4", "example_python_controller"]    
+    targets = ["simulator-px4", "starling-clover", "example_python_controller"]    
 }
 
 group "stage3" {
@@ -174,4 +174,20 @@ target "starling-sim-iris" {
     platforms = ["linux/amd64"]
     cache-to = [ notequal("",BAKE_CACHETO_NAME) ? "${BAKE_CACHETO_REGISTRY}uobflightlabstarling/starling-sim-iris:${BAKE_CACHETO_NAME}" : "" ]
     cache-from = [ notequal("",BAKE_CACHEFROM_NAME) ? "${BAKE_CACHEFROM_REGISTRY}uobflightlabstarling/starling-sim-iris:${BAKE_CACHEFROM_NAME}" : "" ]
+}
+
+// This target depends on starling-controller-base
+target "starling-clover" {
+    context = "system/drones/clover
+    args = { 
+        "VERSION": "${BAKE_VERSION}",
+        "REGISTRY": "${BAKE_REGISTRY}"
+        }
+    tags = [
+        "${BAKE_REGISTRY}uobflightlabstarling/starling-clover:${BAKE_VERSION}",
+        notequal("",BAKE_RELEASENAME) ? "${BAKE_REGISTRY}uobflightlabstarling/starling-clover:${BAKE_RELEASENAME}": "",
+        ]
+    platforms = ["linux/arm64"]
+    cache-to = [ notequal("",BAKE_CACHETO_NAME) ? "${BAKE_CACHETO_REGISTRY}uobflightlabstarling/starling-clover:${BAKE_CACHETO_NAME}" : "" ]
+    cache-from = [ notequal("",BAKE_CACHEFROM_NAME) ? "${BAKE_CACHEFROM_REGISTRY}uobflightlabstarling/starling-clover:${BAKE_CACHEFROM_NAME}" : "" ]
 }
